@@ -29,5 +29,5 @@ class WorkoutType(models.Model):
     name = models.CharField(
         max_length=50,
         choices=TYPES,
-        default=TYPES[0]
+        default=TYPES[0],
     )
