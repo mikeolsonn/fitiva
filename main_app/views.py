@@ -14,11 +14,13 @@ class WorkoutCreate(CreateView):
     fields = '__all__'
 
 def detail(request, workout_id):
-    return render(request, 'detail.html')
+    workout = Workout.objects.get(id=workout_id)
+    return render(request, 'workouts/detail.html', {'workout': workout})
 
 class WorkoutUpdate(UpdateView):
     model = Workout
     fields = '__all__'
+    success_url = '/workouts/'
 
 class WorkoutDelete(DeleteView):
     model = Workout
