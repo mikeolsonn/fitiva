@@ -8,7 +8,6 @@ TYPES = (
     ('c', 'walk'),
 )
 
-
 class WorkoutType(models.Model):
     name = models.CharField(
         max_length=50,
