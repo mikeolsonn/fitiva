@@ -8,4 +8,7 @@
 <p>Calories Burned: {{ workout.calories_burned }}</p>
 <p>Description: {{ workout.description }}</p>
 <p>Date: {{ workout.date }}</p>
+<a href="{% url 'workout_update' workout.id %}">Update</a>
+<a href="{% url 'workout_delete' workout.id %}">Delete</a>
+<a href="{% url 'index' %}">Back to All Workout</a>
 {% endblock %}
