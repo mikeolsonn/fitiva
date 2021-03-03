@@ -12,6 +12,7 @@ def index(request):
 class WorkoutCreate(CreateView):
     model = Workout
     fields = '__all__'
+    success_url = '/workouts/<int:workout_id>/'
 
 def detail(request, workout_id):
     workout = Workout.objects.get(id=workout_id)
