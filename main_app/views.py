@@ -11,8 +11,10 @@ def index(request):
 
 class WorkoutCreate(CreateView):
     model = Workout
-    fields = '__all__'
-    success_url = '/workouts/<int:workout_id>/'
+    fields = ['name', 'workout_type', 'workout_length', 'calories_burned', 'description', 'date']
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)    
 
 def detail(request, workout_id):
     workout = Workout.objects.get(id=workout_id)
