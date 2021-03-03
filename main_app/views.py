@@ -19,8 +19,7 @@ def detail(request, workout_id):
 
 class WorkoutUpdate(UpdateView):
     model = Workout
-    fields = '__all__'
-    success_url = '/workouts/'
+    fields = ['workout_type', 'workout_length', 'calories_burned', 'description']
 
 class WorkoutDelete(DeleteView):
     model = Workout

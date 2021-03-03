@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from datetime import date
+from django.contrib.auth.models import User
 
 TYPES = (
     ('a', 'run'),
@@ -22,6 +23,7 @@ class Workout(models.Model):
     calories_burned = models.IntegerField()
     description = models.TextField(max_length=500)
     date = models.DateField('workout date')
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
