@@ -11,7 +11,7 @@ urlpatterns = [
     # workout details
     path('workouts/<int:workout_id>/', views.detail, name='detail'),
     # update workout
-    path('workouts/<int:workout_id>/update/', views.WorkoutUpdate.as_view(), name='workout_update'),
+    path('workouts/<int:pk>/update/', views.WorkoutUpdate.as_view(), name='workout_update'),
     # delete
-    path('workouts/<int:workout_id>/delete/', views.WorkoutDelete.as_view(), name='workout_delete'),
+    path('workouts/<int:pk>/delete/', views.WorkoutDelete.as_view(), name='workout_delete'),
 ]
