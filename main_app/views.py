@@ -7,7 +7,9 @@ def home(request):
     return render(request, 'home.html')
 
 def index(request):
-    return render(request, 'workouts/index.html')
+    workout = Workout.objects.all()
+    print(workout)
+    return render(request, 'workouts/index.html', { 'workout': workout })
 
 class WorkoutCreate(CreateView):
     model = Workout
