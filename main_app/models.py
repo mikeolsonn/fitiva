@@ -7,6 +7,17 @@ TYPES = (
     ('a', 'run'),
     ('b', 'ride'),
     ('c', 'walk'),
+    ('d', 'run'),
+    ('e', 'ride'),
+    ('f', 'walk'),
+    ('g', 'hike'),
+    ('h', 'canoe'),
+    ('i', 'weight training'),
+    ('j', 'swim'),
+    ('k', 'cross-fit'),
+    ('l', 'stairs-stepper'),
+    ('m', 'elliptical'),
+    ('n', 'workout - other'),
 )
 
 class WorkoutType(models.Model):
