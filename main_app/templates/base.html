@@ -13,12 +13,13 @@
 </head>
 <body>
     <header class="navbar-fixed">
-        <nav>
+        <nav class="cyan accent-2">
             <div class="nav-wrapper">
                 <ul>
+                    <li><a href="{% url 'index' %}" class="center brand-logo">&nbsp;&nbsp;Fitiva</a></li>
+                </ul>
+                <ul class="right">
                     {% if user.is_authenticated %}
-                    <li><a href="{% url 'create' %}">Add a Workout</a></li>
-                    <li><a href="{% url 'index' %}">View All Workouts</a></li>
                     <li><a href="{% url 'logout' %}">Log Out</a></li>
                   {% else %}
                     <li><a href="{% url 'login' %}">Log In</a></li>
@@ -32,8 +33,18 @@
         {% block content %}
         {% endblock %}
     </main>
-  	<footer class="page-footer">
-       <div class="right">All Rights Reserved, &copy; 2021 Fitiva &nbsp;</div>
+
+    {% if user.is_authenticated %}
+    <footer class="center">
+        <a href="{% url 'create' %}" class="waves-effect waves-light btn-large pink lighten-3">Add Workout</a>
+
+        
+        
+    </footer>
+    {% else %}
+  	<footer class="page-footer cyan accent-2">
+       <div class="center">All Rights Reserved, &copy; 2021 Fitiva &nbsp;</div>
+       {% endif %}
     </footer>
     
 </body>

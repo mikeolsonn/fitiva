@@ -13,6 +13,20 @@ footer.page-footer {
     text-align: right;
   }
 
+ul.create {
+  list-style-type: none;
+}
+
+a.btn-floating {
+  position: fixed;
+}
+
+div.home {
+  display: flex;
+  flex-direction: column;
+}
+
+
   
 
 /* header.navbar-fixed {
