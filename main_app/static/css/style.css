@@ -39,11 +39,11 @@ footer.center {
 }
 
 div.card {
-background: rgba( 255, 255, 255, 0.20 );
-box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-backdrop-filter: blur( 8.0px );
--webkit-backdrop-filter: blur( 8.0px );
-border-radius: 10px;
+  background: rgba( 255, 255, 255, 0.45 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 8.0px );
+  -webkit-backdrop-filter: blur( 8.0px );
+  border-radius: 10px;
 }
 
 ul.create {
@@ -58,14 +58,3 @@ div.home {
   display: flex;
   flex-direction: column;
 }
-
-  
-
-/* header.navbar-fixed {
-    background: rgba( 109, 200, 233, 0.20 );
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur( 5.0px );
-    -webkit-backdrop-filter: blur( 5.0px );
-    border-radius: 10px;
-    border: 1px solid rgba( 255, 255, 255, 0.18 ); 
-} */
