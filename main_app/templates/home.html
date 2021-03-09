@@ -1,10 +1,39 @@
-{% extends 'base.html' %}
-{% block content %}
 
-<h1>Home</h1>
-<div class="home">
-<button><a href="{% url 'login' %}">Login</a></button>
-<button>Sign Up</button>
-</div>
+{% block content %}
+{% load static %}
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitiva</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</head>
+<body class="homepage">
+    
+    <img class="center" src="{% static 'images/fitiva_white_logo.png' %}" alt="fitiva" height="125">
+    <div class="home">
+        <ul class="home">
+            <li>
+                <a class="waves-effect waves-light btn" href="{% url 'login' %}">Login</a> 
+            </li>
+            <li>
+                <a class="waves-effect waves-light btn">Sign Up</a>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
+
+
+
+
 
 {% endblock %}

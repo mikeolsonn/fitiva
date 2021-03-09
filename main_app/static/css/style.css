@@ -1,5 +1,7 @@
-body {
+body.homepage {
     display: flex;
+    justify-content: center;
+    align-items: center;
     min-height: 100vh;
     flex-direction: column;
     background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
@@ -54,7 +56,14 @@ a.btn-floating {
   position: fixed;
 }
 
-div.home {
+ul.home {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+}
+
+.home {
+  margin: 10;
 }
