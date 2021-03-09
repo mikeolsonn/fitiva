@@ -3,3 +3,21 @@
 
 <h1>Workouts</h1>
 
+{% for W in workout %}
+  <a href="">
+    <div class="card">
+        <div class="card-content">
+            <p>User: {{ W.user }}</p>
+            <span class="card-title">{{ W.name }}</span>
+            <p>W Type: {{ W.workout_type }}</p>
+            <p>W Length: {{ W.workout_length }}</p>
+            <p>Calories Burned: {{ W.calories_burned }}</p>
+            <p>Description: {{ W.description }}</p>
+            <p>Date: {{ W.date}}</p>
+        </div>
+    </div>
+  </a>
+{% endfor %}
+
+{% endblock %}
+
