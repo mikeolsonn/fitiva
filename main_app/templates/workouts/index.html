@@ -1,7 +1,27 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Workouts</h1>
+
+
+{% for W in workout %}
+
+    <div class="card">
+        <div class="card-content cardcontent">
+            <div id="username">{{ W.user }}</div>
+            <p id="date">{{ W.date}}</p>
+            <span class="card-title" id="full-length">{{ W.user }} completed a {{ W.workout_type }}!</span>
+        </div>
+        <a class="detail-link" href="{% url 'detail' W.id %}">
+            <div id="details-button">See details</div>
+        </a>
+        <div class="like-comment">
+            <div id="like-button">Like</div>
+            <div id="comment-button">Comment</div>
+        </div>
+    </div>
+{% endfor %}
+
+{% endblock %}
 
 {% for W in workout %}
   <a href="">
