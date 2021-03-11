@@ -130,3 +130,13 @@ h1.login {
   width: 100%;
   text-align: center;
 }
+
+.actn-btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.actn-btns button {
+  margin: 50px 25px 50px 25px;
+}

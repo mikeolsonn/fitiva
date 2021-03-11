@@ -21,5 +21,15 @@
     </div>
 {% endfor %}
 
+{% if user.is_authenticated %}
+    <footer class="center">
+        <a href="{% url 'create' %}" class="waves-effect waves-light btn-large pink lighten-3">Add Workout</a>
+    </footer>
+{% else %}
+    <footer class="page-footer cyan accent-3">
+        <div class="center">All Rights Reserved, &copy; 2021 Fitiva &nbsp;</div>
+    </footer>
+{% endif %}
+
 {% endblock %}
 
