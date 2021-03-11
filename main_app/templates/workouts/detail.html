@@ -29,9 +29,15 @@
 </table>
 
 <div class="action-btns">
-    <a class="col btn-floating btn-large cyan" href="{% url 'workout_update' workout.id %}"><i class="material-icons">edit</i></a>
-    <a class="col btn-floating btn-large red" href="{% url 'workout_delete' workout.id %}"><i class="material-icons">delete</i></a>
-    <a class="col btn-floating btn-large green" href="{% url 'index' %}"><i class="material-icons">arrow_back</i></a>
+    <div class="back">
+        <a href="{% url 'index' %}"><i class="medium material-icons">arrow_back</i></a>
+    </div>
+    <div class="edit">
+        <a href="{% url 'workout_update' workout.id %}"><i class="medium material-icons">edit</i></a>
+    </div>
+    <div class="delete">
+        <a href="{% url 'workout_delete' workout.id %}"><i class="medium material-icons">delete</i></a>
+    </div>
 </div>
 
 

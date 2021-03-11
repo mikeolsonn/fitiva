@@ -125,3 +125,9 @@ ul.home {
   width: 100%;
   text-align: center;
 }
+
+.action-btns a {
+  color: red;
+  align-items: center;
+  justify-content: space-around;
+}
