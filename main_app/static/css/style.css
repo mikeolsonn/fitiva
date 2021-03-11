@@ -82,6 +82,11 @@ ul.home {
   font-family: 'Work Sans', sans-serif;
 }
 
+h1.login {
+  font-family: 'Work Sans', sans-serif;
+  color: white;
+}
+
 #calories-burned {
   grid-column: 2 / 4;
 }
