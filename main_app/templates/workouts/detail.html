@@ -28,17 +28,22 @@
     </tbody>
 </table>
 
-<div class="action-btns">
-    <div class="back">
-        <a href="{% url 'index' %}"><i class="medium material-icons">arrow_back</i></a>
-    </div>
-    <div class="edit">
-        <a href="{% url 'workout_update' workout.id %}"><i class="medium material-icons">edit</i></a>
-    </div>
-    <div class="delete">
-        <a href="{% url 'workout_delete' workout.id %}"><i class="medium material-icons">delete</i></a>
-    </div>
+<div class="actn-btns">
+    <button class="btn-floating btn-large waves-effect waves-light white">
+        <a href="{% url 'index' %}" >
+            <i class="material-icons black-text">arrow_back</i>
+        </a>
+    </button>
+    <button class="btn-floating btn-large waves-effect waves-light light-blue">
+        <a href="{% url 'workout_update' workout.id %}">
+            <i class="material-icons">edit</i>
+        </a>
+    </button>
+    <button class="btn-floating btn-large waves-effect waves-light red">
+        <a href="{% url 'workout_delete' workout.id %}">
+            <i class="material-icons">delete</i>
+        </a>
+    </button>
 </div>
-
-
+    
 {% endblock %}
