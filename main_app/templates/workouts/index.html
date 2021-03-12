@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
 
 
@@ -10,14 +11,20 @@
             <div id="username">{{ W.user }}</div>
             <p id="date">{{ W.date}}</p>
             <span class="card-title" id="full-length">{{ W.user }} completed a {{ W.workout_type }}!</span>
+            {% if W.workout_type == 'run' %}
+            <span id="emojis" style='font-size:30px;'>&#127939;&#127939;&#127939;&#127939;&#127939;</span>
+            {% else %}
+            <span id="emojis" style='font-size:30px;'>&#128170;&#128170;&#128170;&#128170;&#128170;</span>
+            {% endif %}
+            <p id="workout-length">Workout length: {{ W.workout_length }}</p>
         </div>
         <a class="detail-link" href="{% url 'detail' W.id %}">
-            <div id="details-button">See details</div>
+            <div id="details-button"><i class="fas fa-bars"></i>&nbsp;&nbsp;See more details</div>
         </a>
-        <div class="like-comment">
+        <!-- <div class="like-comment">
             <div id="like-button">Like</div>
             <div id="comment-button">Comment</div>
-        </div>
+        </div> -->
     </div>
 {% endfor %}
 
