@@ -10,28 +10,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fitiva - Login</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
 </head>
+
 <body class="homepage">
-    <h1 class="login">Sign Up</h1>
-    
-    <form method="POST" action="{% url 'signup' %}">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <div class="home">
-            <ul class="home">
-                <li>
-                    <a class="waves-effect waves-light btn">
-                        <input type="submit" value="Sign Up">  
-                    </a> 
-                </li>
-        <input type="hidden" name="next" value="{{ next }}">
-    </form>
+    <main class="container">
 
+        <h1 class="login">Sign Up</h1>
 
-    
+        {% if error_message %}
+        <p class="red-text">{{ error_message }}</p>
+        {% endif %}
+        
+        <form method="POST" action="{% url 'signup' %}" class="white-text">
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <div class="actn-btns">
+                <button type="submit" class="btn-floating btn-large waves-effect waves-light transparent">
+                    <i class="material-icons">arrow_forward</i>
+                </button>
+                <button type="button" class="btn-floating btn-large waves-effect waves-light red">
+                    <a href="{% url 'home' %}">
+                        <i class="material-icons">clear</i>
+                    </a>
+                </button>
+            </div>
+        </form> 
+    </main>
 </body>
 </html>
 
