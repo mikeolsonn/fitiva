@@ -11,18 +11,6 @@ from .models import Workout, WorkoutType
 def home(request):
     return render(request, 'home.html')
 
-@login_required
-def index(request):
-    workout = Workout.objects.all()
-    print(workout)
-    return render(request, 'workouts/index.html', { 'workout': workout })
-
-@login_required
-def detail(request, workout_id):
-    workout = Workout.objects.get(id=workout_id)
-    return render(request, 'workouts/detail.html', {'workout': workout})
-
-@login_required
 def signup(request):
     error_message = ''
     if request.method == 'POST':
@@ -36,6 +24,19 @@ def signup(request):
     form = UserCreationForm()
     context = {'form': form, 'error_message': error_message}
     return render(request, 'registration/signup.html', context)
+    
+@login_required
+def index(request):
+    workout = Workout.objects.all()
+    print(workout)
+    return render(request, 'workouts/index.html', { 'workout': workout })
+
+@login_required
+def detail(request, workout_id):
+    workout = Workout.objects.get(id=workout_id)
+    return render(request, 'workouts/detail.html', {'workout': workout})
+
+
 
 
 class WorkoutCreate(LoginRequiredMixin, CreateView):
