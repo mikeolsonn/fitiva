@@ -11,20 +11,28 @@
     {% csrf_token %}
 
     <table>
-        {{ form.as_table }}
+        {{ form.as_p }}
     </table>
 
     <div class="actn-btns">
         <button type="submit" class="btn-floating btn-large waves-effect waves-light light-blue">
             <a><i class="material-icons">check</i></a>
         </button>
-        <button class="btn-floating btn-large waves-effect waves-light red">
-            <a href="{% url 'index'}">
-                <i class="material-icons">clear</i>
-            </a>
-        </button>
-    </div>
 
+        {% if object %}
+            <button type="button" class="btn-floating btn-large waves-effect waves-light red">
+                <a href="{% url 'detail' object.id %}">
+                    <i class="material-icons">clear</i>
+                </a>
+            </button>
+        {% else %}
+            <button type="button" class="btn-floating btn-large waves-effect waves-light red">
+                <a href="{% url 'index' %}">
+                    <i class="material-icons">clear</i>
+                </a>
+            </button>
+        {% endif %}
+    </div>
 </form>
 
 <script>

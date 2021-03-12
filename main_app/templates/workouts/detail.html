@@ -16,7 +16,7 @@
         <tr>
             <td>Calories Burned</td>
             <td>{{ workout.calories_burned }}</td>
-          </tr>
+        </tr>
         <tr>
             <td>Description</td>
             <td>{{ workout.description }}</td>
@@ -29,7 +29,7 @@
 </table>
 
 <div class="actn-btns">
-    <button class="btn-floating btn-large waves-effect waves-light white">
+    <button class="btn-floating btn-large waves-effect waves-light transparent">
         <a href="{% url 'index' %}">
             <i class="material-icons black-text">arrow_back</i>
         </a>
@@ -45,5 +45,5 @@
         </a>
     </button>
 </div>
-    
+
 {% endblock %}

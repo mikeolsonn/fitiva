@@ -1,24 +1,22 @@
 {% extends '../base.html' %}
 {% block content %}
 
-    <h1>Are you sure you want to delete <span class="red-text">{{ object.name }}</span>?</h1>
+<h1>Are you sure you want to delete <span class="red-text">{{ object.name }}</span>?</h1>
 
-    <form action="" method="POST">
-        {% csrf_token %}
+<form action="" method="POST">
+    {% csrf_token %}
 
-        <div class="actn-btns">
-            <div>
-                <button type="submit" class="btn-floating btn-large waves-effect waves-light red">
-                    <a><i class="material-icons">check</i></a>
-                </button>
-            </div>
-            <button class="btn-floating btn-large waves-effect waves-light white">
-                <a href="{% url 'detail' object.id %}">
-                    <i class="material-icons black-text">clear</i>
-                </a>
-            </button>
-        </div>
+    <div class="actn-btns">
+        <button type="submit" class="btn-floating btn-large waves-effect waves-light red">
+            <a><i class="material-icons">check</i></a>
+        </button>
+        <button type="button" class="btn-floating btn-large waves-effect waves-light transparent">
+            <a href="{% url 'detail' object.id %}">
+                <i class="material-icons black-text">clear</i>
+            </a>
+        </button>
+    </div>
 
-    </form>
+</form>
 
 {% endblock %}
