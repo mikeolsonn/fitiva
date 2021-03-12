@@ -2,9 +2,6 @@
 {% block content %}
 {% load static %}
 
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,19 +18,15 @@
     <img class="center" src="{% static 'images/fitiva_white_logo.png' %}" alt="fitiva" height="125">
     <div class="home">
         <ul class="home">
-            <li>
-                <a class="waves-effect waves-light btn" href="{% url 'login' %}">Login</a> 
+            <li style="margin-right: 20px;">
+                <a class="waves-effect waves-light btn transparent" href="{% url 'login' %}">Login</a> 
             </li>
             <li>
-                <a class="waves-effect waves-light btn" href="{% url 'signup' %}">Sign Up</a>
+                <a class="waves-effect waves-light btn transparent" href="{% url 'signup' %}">Sign Up</a>
             </li>
         </ul>
     </div>
 </body>
 </html>
-
-
-
-
 
 {% endblock %}
