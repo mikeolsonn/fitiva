@@ -1,36 +1,28 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.forms import UserCreationForm
+
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 from .models import Workout, WorkoutType
 
 
 def home(request):
     return render(request, 'home.html')
 
+@login_required
 def index(request):
     workout = Workout.objects.all()
     print(workout)
     return render(request, 'workouts/index.html', { 'workout': workout })
 
-class WorkoutCreate(CreateView):
-    model = Workout
-    fields = ['name', 'workout_type', 'workout_length', 'calories_burned', 'description', 'date']
-    def form_valid(self, form):
-        form.instance.user = self.request.user
-        return super().form_valid(form)    
-
+@login_required
 def detail(request, workout_id):
     workout = Workout.objects.get(id=workout_id)
     return render(request, 'workouts/detail.html', {'workout': workout})
 
-class WorkoutUpdate(UpdateView):
-    model = Workout
-    fields = ['workout_type', 'workout_length', 'calories_burned', 'description']
-
-class WorkoutDelete(DeleteView):
-    model = Workout
-    success_url = '/workouts/'
-
+@login_required
 def signup(request):
     error_message = ''
     if request.method == 'POST':
@@ -44,3 +36,20 @@ def signup(request):
     form = UserCreationForm()
     context = {'form': form, 'error_message': error_message}
     return render(request, 'registration/signup.html', context)
+
+
+class WorkoutCreate(LoginRequiredMixin, CreateView):
+    model = Workout
+    fields = ['name', 'workout_type', 'workout_length', 'calories_burned', 'description', 'date']
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)    
+
+
+class WorkoutUpdate(LoginRequiredMixin, UpdateView):
+    model = Workout
+    fields = ['workout_type', 'workout_length', 'calories_burned', 'description']
+
+class WorkoutDelete(LoginRequiredMixin, DeleteView):
+    model = Workout
+    success_url = '/workouts/'
