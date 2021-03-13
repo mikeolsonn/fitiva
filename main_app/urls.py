@@ -10,6 +10,8 @@ urlpatterns = [
     path('workouts/create/', views.WorkoutCreate.as_view(), name='create'),
     # workout details
     path('workouts/<int:workout_id>/', views.detail, name='detail'),
+    # my workout details
+    path('workouts/myworkouts/', views.myworkouts, name='myworkouts'),
     # update workout
     path('workouts/<int:pk>/update/', views.WorkoutUpdate.as_view(), name='workout_update'),
     # delete

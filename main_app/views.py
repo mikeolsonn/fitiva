@@ -36,7 +36,11 @@ def detail(request, workout_id):
     workout = Workout.objects.get(id=workout_id)
     return render(request, 'workouts/detail.html', {'workout': workout})
 
-
+@login_required
+def myworkouts(request):
+    workout = Workout.objects.all()
+    print(workout)
+    return render(request, 'workouts/myworkouts.html', { 'workout': workout })
 
 
 class WorkoutCreate(LoginRequiredMixin, CreateView):
