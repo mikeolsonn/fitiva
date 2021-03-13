@@ -2,20 +2,6 @@
 {% load static %}
 {% block content %}
 
-('a', 'run'),
-('b', 'ride'),
-('c', 'walk'),
-('d', 'run'),
-('e', 'ride'),
-('f', 'walk'),
-('g', 'hike'),
-('h', 'canoe'),
-('i', 'weight training'),
-('j', 'swim'),
-('k', 'cross-fit'),
-('l', 'stairs-stepper'),
-('m', 'elliptical'),
-('n', 'workout - other'),
 
 {% for W in workout %}
 
@@ -26,23 +12,23 @@
             <span class="card-title" id="full-length">{{ W.user }} completed a {{ W.workout_type }}!</span>
             {% if W.workout_type == 'run' %}
             <span id="emojis" style='font-size:30px;'>&#127939;&#127939;&#127939;&#127939;&#127939;</span>
-            {% elif W.workout_type = 'ride' %}
+            {% elif W.workout_type == 'ride' %}
             <span id="emojis" style='font-size:30px;'>&#128692;&#128692;&#128692;&#128692;&#128692;</span>
-            {% elif W.workout_type = 'walk' %}
+            {% elif W.workout_type == 'walk' %}
             <span id="emojis" style='font-size:30px;'>&#128694;&#128694;&#128694;&#128694;&#128694;</span>
-            {% elif W.workout_type = 'hike' %}
+            {% elif W.workout_type == 'hike' %}
             <span id="emojis" style='font-size:30px;'>&#129406;&#129406;&#129406;&#129406;&#129406;</span>
-            {% elif W.workout_type = 'canoe' %}
+            {% elif W.workout_type == 'canoe' %}
             <span id="emojis" style='font-size:30px;'>&#128758;&#128758;&#128758;&#128758;&#128758;</span>
-            {% elif W.workout_type = 'weight training' %}
+            {% elif W.workout_type == 'weight training' %}
             <span id="emojis" style='font-size:30px;'>&#127947;&#127947;&#127947;&#127947;&#127947;</span>
-            {% elif W.workout_type = 'swim' %}
+            {% elif W.workout_type == 'swim' %}
             <span id="emojis" style='font-size:30px;'>&#127946;&#127946;&#127946;&#127946;&#127946;</span>
-            {% elif W.workout_type = 'cross-fit' %}
+            {% elif W.workout_type == 'cross-fit' %}
             <span id="emojis" style='font-size:30px;'>&#127947;&#127947;&#127947;&#127947;&#127947;</span>
-            {% elif W.workout_type = 'stairs-stepper' %}
+            {% elif W.workout_type == 'stairs-stepper' %}
             <span id="emojis" style='font-size:30px;'>&#129692;&#129692;&#129692;&#129692;&#129692;</span>
-            {% elif W.workout_type = 'elliptical' %}
+            {% elif W.workout_type == 'elliptical' %}
             <span id="emojis" style='font-size:30px;'>&#128692;&#128692;&#128692;&#128692;&#128692;</span>
             {% else %}
             <span id="emojis" style='font-size:30px;'>&#128170;&#128170;&#128170;&#128170;&#128170;</span>
