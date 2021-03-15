@@ -1,49 +1,57 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>{{ workout.name }}</h1>
+<div class="container">
+    <div class="page-font">
+        <h1>{{ workout.name }}</h1>
+        
+        <table>
+            <tbody>
+                <tr>
+                    <td>Type</td>
+                    <td>{{ workout.workout_type }}</td>
+                </tr>
+                <tr>
+                    <td>Length</td>
+                    <td>{{ workout.workout_length }}</td>
+                </tr>
+                <tr>
+                    <td>Calories Burned</td>
+                    <td>{{ workout.calories_burned }}</td>
+                </tr>
+                <tr>
+                    <td>Description</td>
+                    <td>{{ workout.description }}</td>
+                </tr>
+                <tr>
+                    <td>Date</td>
+                    <td>{{ workout.date }}</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div class="actn-btns">
+            <button class="btn-floating btn-large waves-effect waves-light transparent">
+                <a href="{% url 'index' %}">
+                    <i class="material-icons black-text">arrow_back</i>
+                </a>
+            </button>
 
-<table>
-    <tbody>
-        <tr>
-            <td>Type</td>
-            <td>{{ workout.workout_type }}</td>
-        </tr>
-        <tr>
-            <td>Length</td>
-            <td>{{ workout.workout_length }}</td>
-        </tr>
-        <tr>
-            <td>Calories Burned</td>
-            <td>{{ workout.calories_burned }}</td>
-        </tr>
-        <tr>
-            <td>Description</td>
-            <td>{{ workout.description }}</td>
-        </tr>
-        <tr>
-            <td>Date</td>
-            <td>{{ workout.date }}</td>
-        </tr>
-    </tbody>
-</table>
 
-<div class="actn-btns">
-    <button class="btn-floating btn-large waves-effect waves-light transparent">
-        <a href="{% url 'index' %}">
-            <i class="material-icons black-text">arrow_back</i>
-        </a>
-    </button>
-    <button class="btn-floating btn-large waves-effect waves-light light-blue">
-        <a href="{% url 'workout_update' workout.id %}">
-            <i class="material-icons">edit</i>
-        </a>
-    </button>
-    <button class="btn-floating btn-large waves-effect waves-light red">
-        <a href="{% url 'workout_delete' workout.id %}">
-            <i class="material-icons">delete</i>
-        </a>
-    </button>
+            <button class="btn-floating btn-large waves-effect waves-light light-blue">
+                <a href="{% url 'workout_update' workout.id %}">
+                    <i class="material-icons">edit</i>
+                </a>
+            </button>
+            <button class="btn-floating btn-large waves-effect waves-light red">
+                <a href="{% url 'workout_delete' workout.id %}">
+                    <i class="material-icons">delete</i>
+                </a>
+            </button>
+
+        </div>
+    </div>
 </div>
-
+    
+    
 {% endblock %}
