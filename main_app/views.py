@@ -50,6 +50,7 @@ class WorkoutCreate(LoginRequiredMixin, CreateView):
 class WorkoutUpdate(LoginRequiredMixin, UpdateView):
     model = Workout
     fields = ['workout_type', 'workout_length', 'calories_burned', 'description']
+    
 
 class WorkoutDelete(LoginRequiredMixin, DeleteView):
     model = Workout
