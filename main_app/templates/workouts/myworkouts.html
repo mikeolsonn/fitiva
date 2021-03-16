@@ -5,9 +5,11 @@
 {% for W in workout %}
     {% if W.user == request.user %}
     <div class="card">
-        <div class="card-content cardcontent">
+        <div class="date">
             <div id="username">{{ W.user }}</div>
             <p id="date">{{ W.date}}</p>
+        </div>
+        <div class="card-content cardcontent">
             <span class="card-title" id="full-length">{{ W.user }} completed a {{ W.workout_type }}!</span>
             {% if W.workout_type == 'run' %}
             <span id="emojis" style='font-size:30px;'>&#127939;&#127939;&#127939;&#127939;&#127939;</span>
