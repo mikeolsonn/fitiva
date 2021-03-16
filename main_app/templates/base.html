@@ -19,15 +19,18 @@
 <body class="blue-grey lighten-5">
     <header class="navbar-fixed">
         <nav class="light-blue">
-            <div class="nav-wrapper">
+            <div class="flex-nav-bar nav-wrapper">
                 <ul>
-                    <li><a href="{% url 'index' %}" class="center brand-logo"><img src="{% static 'images/fitiva_white_logo.png' %}" alt="fitiva" height="60"></a></li>
+                    <li><a href="{% url 'index' %}"><img src="{% static 'images/fitiva_white_logo.png' %}" alt="fitiva" height="60"></a></li>
                 </ul>
                 <ul class="right">
                     {% if user.is_authenticated %}
-                    <li><a href="{% url 'logout' %}">Log Out</a></li>
+                    
+                    <li><a href="{% url 'index' %}"><i class="fas fa-home"></i></a></li>
+                    <li><a href="{% url 'myworkouts' %}"><i class="fas fa-user"></i></a></li>
+                    <li><a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i></a></li>
                   {% else %}
-                    <li><a href="{% url 'login' %}">Log In</a></li>
+                    <li><a href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i></a></li>
                   {% endif %}
                 </ul>
             </div>
