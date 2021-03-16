@@ -29,7 +29,11 @@ class WorkoutType(models.Model):
 
 class Workout(models.Model):
     name = models.CharField(max_length=250)
-    workout_type = models.CharField(max_length=25)
+    workout_type = models.CharField(
+        max_length=50,
+        choices=TYPES,
+        default=TYPES[0][0],
+    )
     workout_length = models.IntegerField()
     calories_burned = models.IntegerField()
     description = models.TextField(max_length=500)
