@@ -37,7 +37,7 @@
                 </a>
             </button>
 
-
+            {% if workout.user == request.user %}
             <button class="btn-floating btn-large waves-effect waves-light light-blue">
                 <a href="{% url 'workout_update' workout.id %}">
                     <i class="material-icons">edit</i>
@@ -48,7 +48,7 @@
                     <i class="material-icons">delete</i>
                 </a>
             </button>
-
+            {% endif %}
         </div>
     </div>
 </div>
