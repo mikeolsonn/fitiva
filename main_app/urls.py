@@ -18,4 +18,6 @@ urlpatterns = [
     path('workouts/<int:pk>/delete/', views.WorkoutDelete.as_view(), name='workout_delete'),
     # signup 
     path('accounts/signup/', views.signup, name='signup'),
+    # comment
+    path('workouts/<int:workout_id>/add_comment/', views.add_comment, name='comment'),
 ]
