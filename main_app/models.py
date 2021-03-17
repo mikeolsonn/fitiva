@@ -4,35 +4,25 @@ from datetime import date
 from django.contrib.auth.models import User
 
 TYPES = (
-    ('a', 'run'),
-    ('b', 'ride'),
-    ('c', 'walk'),
-    ('d', 'run'),
-    ('e', 'ride'),
-    ('f', 'walk'),
-    ('g', 'hike'),
-    ('h', 'canoe'),
-    ('i', 'weight training'),
-    ('j', 'swim'),
-    ('k', 'cross-fit'),
-    ('l', 'stairs-stepper'),
-    ('m', 'elliptical'),
-    ('n', 'workout - other'),
+    ('run', 'run'),
+    ('ride', 'ride'),
+    ('walk', 'walk'),
+    ('hike', 'hike'),
+    ('canoe', 'canoe'),
+    ('weight training', 'weight training'),
+    ('swim', 'swim'),
+    ('cross-fit', 'cross-fit'),
+    ('stairs-stepper', 'stairs-stepper'),
+    ('elliptical', 'elliptical'),
+    ('workout - other', 'workout - other'),
 )
-
-class WorkoutType(models.Model):
-    name = models.CharField(
-        max_length=50,
-        choices=TYPES,
-        default=TYPES[0][0],
-    )
 
 class Workout(models.Model):
     name = models.CharField(max_length=250)
     workout_type = models.CharField(
         max_length=50,
         choices=TYPES,
-        default=TYPES[0][0],
+        default=TYPES[0][1],
     )
     workout_length = models.IntegerField()
     calories_burned = models.IntegerField()
