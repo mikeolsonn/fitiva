@@ -25,7 +25,7 @@ SECRET_KEY = 'jqm^_(+z8)i)2&#_uq(w#7!)yogta9y*+e@+n=u8ej)%p&*xw&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -122,3 +122,6 @@ STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL='/workouts/'
 LOGOUT_REDIRECT_URL = '/'
+
+import django_heroku
+django_heroku.settings(locals())

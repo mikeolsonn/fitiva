@@ -1,48 +1,58 @@
 {% extends 'base.html' %}
 {% block content %}
 
-{% if workout %}
-    <h1>Edit <span class="red-text">{{ workout.workout_type }}</span></h1>
-{% else %}
-    <h1>Add a Workout</h1>
-{% endif %}
-
-<form action="" method="POST">
-    {% csrf_token %}
-
-    <table>
-        {{ form.as_p }}
-    </table>
-
-    <div class="actn-btns">
-        <button type="submit" class="btn-floating btn-large waves-effect waves-light light-blue">
-            <a><i class="material-icons">check</i></a>
-        </button>
+<div class="container">
+    <div class="page-font">
 
         {% if object %}
-            <button type="button" class="btn-floating btn-large waves-effect waves-light red">
-                <a href="{% url 'detail' object.id %}">
-                    <i class="material-icons">clear</i>
-                </a>
-            </button>
+            <h1>Edit <span class="light-blue-text">{{ object.name }}</span></h1>
         {% else %}
-            <button type="button" class="btn-floating btn-large waves-effect waves-light red">
-                <a href="{% url 'index' %}">
-                    <i class="material-icons">clear</i>
-                </a>
-            </button>
+            <h1>Add a Workout</h1>
         {% endif %}
-    </div>
-</form>
+        
+        <form action="" method="POST">
+            {% csrf_token %}
+        
+            <table>
+                {{ form.as_p }}
+            </table>
+        
+            <div class="actn-btns">
+                <button type="submit" class="btn-floating btn-large waves-effect waves-light light-blue">
+                    <a><i class="material-icons">check</i></a>
+                </button>
+        
+                {% if object %}
+                    <button type="button" class="btn-floating btn-large waves-effect waves-light red">
+                        <a href="{% url 'detail' object.id %}">
+                            <i class="material-icons">clear</i>
+                        </a>
+                    </button>
+                {% else %}
+                    <button type="button" class="btn-floating btn-large waves-effect waves-light red">
+                        <a href="{% url 'index' %}">
+                            <i class="material-icons">clear</i>
+                        </a>
+                    </button>
+                {% endif %}
+            </div>
+        </form>
+        
+        <script>
+            var dateEl = document.getElementById('id_date');
+            M.Datepicker.init(dateEl, {
+                format: 'yyyy-mm-dd',
+                defaultDate: new Date(),
+                setDefaultDate: true,
+                autoClose: true
+            });
 
-<script>
-    var dateEl = document.getElementById('id_date');
-    M.Datepicker.init(dateEl, {
-        format: 'yyyy-mm-dd',
-        defaultDate: new Date(),
-        setDefaultDate: true,
-        autoClose: true
-    });
-</script>
+            // initialize the meal select
+            var selectEl = document.getElementById('id_workout_type');
+            M.FormSelect.init(selectEl);
+        </script>
+    </div>
+</div>
+
 
 {% endblock %}

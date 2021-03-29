@@ -5,8 +5,8 @@ from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-from .models import Workout, WorkoutType
-
+from .models import Workout
+from .forms import CommentForm
 
 def home(request):
     return render(request, 'home.html')
@@ -34,10 +34,24 @@ def index(request):
 @login_required
 def detail(request, workout_id):
     workout = Workout.objects.get(id=workout_id)
-    return render(request, 'workouts/detail.html', {'workout': workout})
+    comment_form = CommentForm()
+    return render(request, 'workouts/detail.html', { 'workout': workout, 'comment_form': comment_form })
 
+@login_required
+def myworkouts(request):
+    workout = Workout.objects.all()
+    print(workout)
+    return render(request, 'workouts/myworkouts.html', { 'workout': workout })
 
-
+@login_required
+def add_comment(request, workout_id):
+    form = CommentForm(request.POST)
+    if form.is_valid():
+        new_comment = form.save(commit=False)
+        new_comment.workout_id = workout_id
+        new_comment.author = request.user
+        new_comment.save()
+    return redirect('detail', workout_id=workout_id)
 
 class WorkoutCreate(LoginRequiredMixin, CreateView):
     model = Workout

@@ -2,16 +2,15 @@
 {% load static %}
 {% block content %}
 
-
 {% for W in workout %}
+    {% if W.user == request.user %}
     <div class="card">
         <div class="date">
             <div id="username">{{ W.user }}</div>
-            <p id="date">{{ W.date }}</p>
+            <p id="date">{{ W.date}}</p>
         </div>
         <div class="card-content cardcontent">
             <span class="card-title" id="full-length">{{ W.user }} completed a {{ W.workout_type }}!</span>
-
             {% if W.workout_type == 'run' %}
             <span id="emojis" style='font-size:30px;'>&#127939;&#127939;&#127939;&#127939;&#127939;</span>
             {% elif W.workout_type == 'ride' %}
@@ -34,7 +33,6 @@
             <span id="emojis" style='font-size:30px;'>&#128692;&#128692;&#128692;&#128692;&#128692;</span>
             {% else %}
             <span id="emojis" style='font-size:30px;'>&#128170;&#128170;&#128170;&#128170;&#128170;</span>
-
             {% endif %}
             <p id="workout-length">Workout length: {{ W.workout_length }}</p>
         </div>
@@ -42,6 +40,7 @@
             <div id="details-button"><i class="fas fa-bars"></i>&nbsp;&nbsp;See more details</div>
         </a>
     </div>
+    {% endif %}
 {% endfor %}
 
 {% if user.is_authenticated %}
@@ -54,5 +53,5 @@
     </footer>
 {% endif %}
 
-{% endblock %}
 
+{% endblock %}
